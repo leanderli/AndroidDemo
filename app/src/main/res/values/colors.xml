@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_1">#b66d31</color>
+    <color name="color_2">#b1b73a</color>
+    <color name="color_4">#b5ffffff</color>
+    <color name="color_3">#12cfd1</color>
+
+    <color name="legacy_icon_background">#FFFFFF</color>
+</resources>

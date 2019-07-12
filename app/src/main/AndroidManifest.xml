@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.leanderli.android.demo">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.leanderli.android.demo.timertasktest.MainActivity" />
+
+        <service android:name="com.leanderli.android.demo.timertasktest.AlarmService" />
+
+        <receiver android:name="com.leanderli.android.demo.timertasktest.AlarmReceiver" />
+
+        <activity android:name="com.leanderli.android.demo.mvptest.test.TestActivity" />
+        <activity android:name="com.leanderli.android.demo.mvptest.recycleviewtest.ListTestActivity" />
+        <activity android:name="com.leanderli.android.demo.canvas.DrawTextActivity" />
+        <activity android:name="com.leanderli.android.demo.launcher.LauncherAppTestActivity">
+
+        </activity>
+        <activity android:name="com.leanderli.android.demo.linearGradient.LinearGradientTestActivity" />
+        <activity android:name="com.leanderli.android.demo.blur.BlurTestActivity" />
+        <activity android:name="com.leanderli.android.demo.canvas.CircleImageViewTestActivity" />
+        <activity android:name="com.leanderli.android.demo.layout.GridLayoutTestActivity" />
+        <activity android:name="com.leanderli.android.demo.canvas.DrawableTextViewTestActivity"></activity>
+        <activity android:name="com.leanderli.android.demo.file.FileTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
