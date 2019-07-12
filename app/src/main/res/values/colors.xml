@@ -10,4 +10,5 @@
     <color name="color_3">#12cfd1</color>
 
     <color name="legacy_icon_background">#FFFFFF</color>
+    <color name="transparent">@android:color/transparent</color>
 </resources>
