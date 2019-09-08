@@ -29,7 +29,8 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     //    compile 'com.fivehundredpx:blurringview:1.0.0'
     //    compile 'com.wonderkiln:blurkit:1.0.0'
-    compile 'com.ruffian.library:RTextView:1.0.11'
+    implementation 'com.ruffian.library:RTextView:1.0.11'
     //noinspection GradleCompatible
     implementation 'com.android.support:palette-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
 }

@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.leanderli.android.demo">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,33 +14,39 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.leanderli.android.demo.timertasktest.MainActivity" />
-
-        <service android:name="com.leanderli.android.demo.timertasktest.AlarmService" />
-
-        <receiver android:name="com.leanderli.android.demo.timertasktest.AlarmReceiver" />
-
-        <activity android:name="com.leanderli.android.demo.mvptest.test.TestActivity" />
-        <activity android:name="com.leanderli.android.demo.mvptest.recycleviewtest.ListTestActivity" />
-        <activity android:name="com.leanderli.android.demo.canvas.DrawTextActivity" />
-        <activity android:name="com.leanderli.android.demo.launcher.LauncherAppTestActivity">
-
-        </activity>
-        <activity android:name="com.leanderli.android.demo.linearGradient.LinearGradientTestActivity" />
-        <activity android:name="com.leanderli.android.demo.blur.BlurTestActivity" />
-        <activity android:name="com.leanderli.android.demo.canvas.CircleImageViewTestActivity" />
-        <activity android:name="com.leanderli.android.demo.layout.GridLayoutTestActivity" />
-        <activity android:name="com.leanderli.android.demo.canvas.DrawableTextViewTestActivity" />
-        <activity android:name=".component.BottomDrawerLayoutTestActivity">
+        <activity android:name=".component.viewpager.RecyclerViewPagerTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.leanderli.android.demo.file.FileTestActivity">
 
         </activity>
+        <activity android:name=".launcher.Launcher" />
+        <activity android:name=".layout.VerticalDrawerLayoutActivity">
+
+        </activity>
+        <activity
+            android:name=".bottomsheet.BottomSheetActivity"
+            android:theme="@style/LauncherThemeCompat" />
+        <activity android:name=".timertasktest.MainActivity" />
+
+        <service android:name=".timertasktest.AlarmService" />
+
+        <receiver android:name=".timertasktest.AlarmReceiver" />
+
+        <activity android:name=".mvptest.test.TestActivity" />
+        <activity android:name=".mvptest.recycleviewtest.ListTestActivity" />
+        <activity android:name=".canvas.DrawTextActivity" />
+        <activity android:name=".launcher.LauncherAppTestActivity" />
+        <activity android:name=".linearGradient.LinearGradientTestActivity" />
+        <activity android:name=".blur.BlurTestActivity" />
+        <activity android:name=".canvas.CircleImageViewTestActivity" />
+        <activity android:name=".layout.GridLayoutTestActivity" />
+        <activity android:name=".canvas.DrawableTextViewTestActivity" />
+        <activity android:name=".component.BottomDrawerLayoutTestActivity" />
+        <activity android:name=".file.FileTestActivity" />
+        <activity android:name=".tablayout.TabLayoutActivity" />
     </application>
 
 </manifest>
