@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-    <com.leanderli.android.demo.component.BottomDrawerLayout
+    <com.leanderli.android.demo.component.drawerlayout.BottomDrawerLayout
         android:id="@+id/bottom_drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,6 +26,6 @@
 
         </LinearLayout>
 
-    </com.leanderli.android.demo.component.BottomDrawerLayout>
+    </com.leanderli.android.demo.component.drawerlayout.BottomDrawerLayout>
 
 </RelativeLayout>

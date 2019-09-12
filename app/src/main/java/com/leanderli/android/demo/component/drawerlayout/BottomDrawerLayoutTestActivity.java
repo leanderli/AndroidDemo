@@ -1,4 +1,4 @@
-package com.leanderli.android.demo.component;
+package com.leanderli.android.demo.component.drawerlayout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

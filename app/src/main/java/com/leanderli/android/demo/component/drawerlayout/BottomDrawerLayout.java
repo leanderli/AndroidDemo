@@ -1,4 +1,4 @@
-package com.leanderli.android.demo.component;
+package com.leanderli.android.demo.component.drawerlayout;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;

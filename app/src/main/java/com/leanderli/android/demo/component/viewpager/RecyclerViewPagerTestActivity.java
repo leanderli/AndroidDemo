@@ -24,8 +24,8 @@ public class RecyclerViewPagerTestActivity extends AppCompatActivity {
         mPager = findViewById(R.id.content_pager);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mPager.setLayoutManager(layoutManager);
-        mPager.setTriggerOffset(0.15f);
-        mPager.setFlingFactor(0.25f);
+        mPager.setFlingFactor(1f);
+        mPager.setTriggerOffset(0.5f);
 
         mFragments = new ArrayList<>();
         mFragments.add(FragmentOne.newInstance());

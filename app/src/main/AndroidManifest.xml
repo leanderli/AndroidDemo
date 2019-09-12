@@ -44,7 +44,7 @@
         <activity android:name=".canvas.CircleImageViewTestActivity" />
         <activity android:name=".layout.GridLayoutTestActivity" />
         <activity android:name=".canvas.DrawableTextViewTestActivity" />
-        <activity android:name=".component.BottomDrawerLayoutTestActivity" />
+        <activity android:name=".component.drawerlayout.BottomDrawerLayoutTestActivity" />
         <activity android:name=".file.FileTestActivity" />
         <activity android:name=".tablayout.TabLayoutActivity" />
     </application>
