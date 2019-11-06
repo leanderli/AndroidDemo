@@ -14,18 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".component.viewpager.RecyclerViewPagerTestActivity">
+        <activity android:name=".layout.FlowLayoutTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
 
+        <activity android:name=".component.viewpager.RecyclerViewPagerTestActivity">
         </activity>
         <activity android:name=".launcher.Launcher" />
-        <activity android:name=".layout.VerticalDrawerLayoutActivity">
-
-        </activity>
+        <activity android:name=".layout.VerticalDrawerLayoutActivity"></activity>
         <activity
             android:name=".bottomsheet.BottomSheetActivity"
             android:theme="@style/LauncherThemeCompat" />
@@ -46,7 +46,9 @@
         <activity android:name=".canvas.DrawableTextViewTestActivity" />
         <activity android:name=".component.drawerlayout.BottomDrawerLayoutTestActivity" />
         <activity android:name=".file.FileTestActivity" />
-        <activity android:name=".tablayout.TabLayoutActivity" />
+        <activity android:name=".tablayout.TabLayoutActivity" >
+
+        </activity>
     </application>
 
 </manifest>
