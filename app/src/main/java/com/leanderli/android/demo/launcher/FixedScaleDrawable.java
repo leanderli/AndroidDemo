@@ -30,7 +30,7 @@ public class FixedScaleDrawable extends DrawableWrapper {
 
     @Override
     public void draw(Canvas canvas) {
-        @SuppressLint("WrongConstant") int saveCount = canvas.save(Canvas.MATRIX_SAVE_FLAG);
+        @SuppressLint("WrongConstant") int saveCount = canvas.save();
         canvas.scale(mScaleX, mScaleY,
                 getBounds().exactCenterX(), getBounds().exactCenterY());
         super.draw(canvas);
