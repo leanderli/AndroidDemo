@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".popup.PopupTestActivity"
-    android:gravity="center"
-    android:background="#D5D5D5">
+    android:background="#D5D5D5"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/app"
@@ -14,5 +15,10 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
         android:onClick="showPopup"/>
+
+    <com.leanderli.android.demo.popup.ShortcutItemView
+        android:id="@+id/shortcut_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

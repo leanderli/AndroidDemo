@@ -39,7 +39,7 @@ public class ShortcutsPopupView extends BasePopupWindow {
     }
 
     private View createView() {
-        View view = getContext().getLayoutInflater().inflate(R.layout.shortcuts_view, null, false);
+        View view = createPopupById(R.layout.shortcuts_view);
         RecyclerView recyclerView = view.findViewById(R.id.shortcuts);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
 

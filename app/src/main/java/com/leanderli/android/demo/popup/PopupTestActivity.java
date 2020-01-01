@@ -1,9 +1,9 @@
 package com.leanderli.android.demo.popup;
 
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.leanderli.android.demo.R;
@@ -20,7 +20,11 @@ public class PopupTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_popup_test);
+        View contentView = LayoutInflater.from(this).inflate(R.layout.activity_popup_test, null, false);
+        setContentView(contentView);
+
+        ShortcutItemView shortcutItemView = contentView.findViewById(R.id.shortcut_item);
+        shortcutItemView.applyShortcutInfo(new ShortcutsInfo("测试", getDrawable(R.drawable.ic_keyboard_arrow_down)));
 
         mShortcutsInfo.clear();
         initShortcutsInfos();
@@ -42,6 +46,7 @@ public class PopupTestActivity extends AppCompatActivity {
         popupBlurOption.setBlurRadius(10);
         shortcutsPopupView.setBlurOption(popupBlurOption);
         shortcutsPopupView.setBlurBackgroundEnable(true);
+        shortcutsPopupView.setMaxHeight(2000);
         shortcutsPopupView.showPopupWindow(view);
     }
 }
