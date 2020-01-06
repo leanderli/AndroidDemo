@@ -14,17 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".popup.PopupTestActivity">
+        <activity android:name=".shatter.ShatterTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gridview.DragSortGridViewTestActivity">
+        <activity android:name=".popup.PopupTestActivity">
 
         </activity>
-        <activity android:name=".layout.FlowLayoutTestActivity"></activity>
+        <activity android:name=".gridview.DragSortGridViewTestActivity"></activity>
+        <activity android:name=".layout.FlowLayoutTestActivity" />
         <activity android:name=".component.viewpager.RecyclerViewPagerTestActivity" />
         <activity android:name=".launcher.Launcher" />
         <activity android:name=".layout.VerticalDrawerLayoutActivity" />

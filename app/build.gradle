@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -40,6 +44,8 @@ dependencies {
     // BasePopup
     implementation 'com.github.razerdp:BasePopup:2.2.1'
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'com.github.tianzhijiexian:Shatter:1.0.8'
 
 
 }
