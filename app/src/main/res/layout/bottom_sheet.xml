@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     app:layout_behavior="@string/bottom_sheet_behavior"
+    android:orientation="vertical"
     app:behavior_peekHeight="100dp">
 
     <LinearLayout
+        android:id="@+id/search_edit"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="vertical"
@@ -22,14 +23,18 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/search_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher" />
 
     </LinearLayout>
-
-
 
 
 </LinearLayout>
