@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.leanderli.android.demo.linearGradient.LinearGradientTestActivity">
+    tools:context="com.leanderli.android.demo.lineargradient.LinearGradientTestActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/iv_wallpaper"/>
 
-    <com.leanderli.android.demo.linearGradient.MyView
+    <com.leanderli.android.demo.lineargradient.MyView
         android:layout_width="match_parent"
         android:layout_height="260dp"
         android:id="@+id/v_front_color"

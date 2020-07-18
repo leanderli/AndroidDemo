@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.leanderli.android.demo.canvas.DrawableTextViewTestActivity">
+    tools:context=".textview.DrawableTextViewTestActivity">
 
-    <com.leanderli.android.demo.customizeviews.LlDrawableTextView
+    <com.leanderli.android.demo.textview.LlDrawableTextView
         android:layout_width="80dp"
         android:layout_height="120dp"
         android:id="@+id/drawableTextView"/>
 
-    <com.leanderli.android.demo.customizeviews.LlShadowTextView
+    <com.leanderli.android.demo.textview.LlShadowTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="测试文字阴影...TEST"

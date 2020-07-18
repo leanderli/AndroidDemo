@@ -22,7 +22,7 @@
 
     </LinearLayout>
 
-    <com.leanderli.android.demo.customizeviews.VerticalDrawerLayout
+    <com.leanderli.android.demo.drawerlayout.VerticalDrawerLayout
         android:id="@+id/bottom_drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -55,7 +55,7 @@
                 android:textSize="30sp" />
         </LinearLayout>
 
-    </com.leanderli.android.demo.customizeviews.VerticalDrawerLayout>
+    </com.leanderli.android.demo.drawerlayout.VerticalDrawerLayout>
 
 
 </LinearLayout>

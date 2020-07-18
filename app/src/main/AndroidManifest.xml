@@ -22,9 +22,9 @@
         <activity android:name=".shatter.ShatterTestActivity" />
         <activity android:name=".popup.PopupTestActivity" />
         <activity android:name=".gridview.DragSortGridViewTestActivity" />
-        <activity android:name=".layout.FlowLayoutTestActivity" />
-        <activity android:name=".component.viewpager.RecyclerViewPagerTestActivity" />
-        <activity android:name=".layout.VerticalDrawerLayoutActivity" />
+        <activity android:name=".flowlayout.FlowLayoutTestActivity" />
+        <activity android:name=".viewpager.RecyclerViewPagerTestActivity" />
+        <activity android:name=".drawerlayout.VerticalDrawerLayoutActivity" />
         <activity
             android:name=".bottomsheet.BottomSheetActivity"
             android:theme="@style/LauncherThemeCompat">
@@ -34,21 +34,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".timertasktest.MainActivity" />
+        <activity android:name=".timertask.MainActivity" />
 
-        <service android:name=".timertasktest.AlarmService" />
+        <service android:name=".timertask.AlarmService" />
 
-        <receiver android:name=".timertasktest.AlarmReceiver" />
+        <receiver android:name=".timertask.AlarmReceiver" />
 
-        <activity android:name=".mvptest.test.TestActivity" />
-        <activity android:name=".mvptest.recycleviewtest.ListTestActivity" />
+        <activity android:name=".mvp.test.TestActivity" />
+        <activity android:name=".mvp.recycleviewtest.ListTestActivity" />
         <activity android:name=".canvas.DrawTextActivity" />
-        <activity android:name=".linearGradient.LinearGradientTestActivity" />
+        <activity android:name=".lineargradient.LinearGradientTestActivity" />
         <activity android:name=".blur.BlurTestActivity" />
-        <activity android:name=".canvas.CircleImageViewTestActivity" />
-        <activity android:name=".layout.GridLayoutTestActivity" />
-        <activity android:name=".canvas.DrawableTextViewTestActivity" />
-        <activity android:name=".component.drawerlayout.BottomDrawerLayoutTestActivity" />
+        <activity android:name=".imageview.CircleImageViewTestActivity" />
+        <activity android:name=".gridview.GridLayoutTestActivity" />
+        <activity android:name=".textview.DrawableTextViewTestActivity" />
+        <activity android:name=".drawerlayout.BottomDrawerLayoutTestActivity" />
         <activity android:name=".file.FileTestActivity" />
         <activity android:name=".tablayout.TabLayoutActivity"></activity>
     </application>

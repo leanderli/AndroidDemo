@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <com.leanderli.android.demo.layout.FlowLayout
+    <com.leanderli.android.demo.flowlayout.FlowLayout
         android:layout_weight="1"
         android:id="@+id/flowlayout"
         android:layout_width="match_parent"
