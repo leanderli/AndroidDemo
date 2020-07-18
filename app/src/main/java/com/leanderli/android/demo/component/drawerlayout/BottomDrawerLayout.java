@@ -1,14 +1,15 @@
 package com.leanderli.android.demo.component.drawerlayout;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
+import androidx.customview.widget.ViewDragHelper;
 
 import com.leanderli.android.demo.R;
 

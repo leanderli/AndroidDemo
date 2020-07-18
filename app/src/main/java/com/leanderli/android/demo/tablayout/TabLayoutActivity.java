@@ -1,10 +1,12 @@
 package com.leanderli.android.demo.tablayout;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 import com.leanderli.android.demo.R;
 
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ public class TabLayoutActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
-    private android.support.v4.app.FragmentManager fm;
+    private FragmentManager fm;
 
     private ArrayList<String> mTitles = new ArrayList<>();
     private HashMap<String, ArrayList<String>> mItemMaps = new HashMap<>();

@@ -6,13 +6,15 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 /**
  * @Description
  * @Author ls573
  * @Date 18.9.21
  */
 
-public class TextImageView extends android.support.v7.widget.AppCompatImageView {
+public class TextImageView extends AppCompatImageView {
 
     private Bitmap bitmap;
     private int width, height;

@@ -1,11 +1,13 @@
 package com.leanderli.android.demo.mvptest.recycleviewtest;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.OrientationHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.leanderli.android.demo.R;
 import com.leanderli.android.demo.mvptest.base.BaseActivity;
@@ -38,6 +40,7 @@ public class ListTestActivity extends BaseActivity implements ListTestView {
         listTestPresenter.detachView();
     }
 
+    @SuppressLint("WrongConstant")
     @Override
     public void setAdapter(ArrayList<User> users) {
         listTestAdapter = new ListTestAdapter(this, users);

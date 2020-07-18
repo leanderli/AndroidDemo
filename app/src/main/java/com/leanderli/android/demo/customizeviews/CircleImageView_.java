@@ -12,13 +12,15 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 /**
  * @Description
  * @Author ls573
  * @Date 18.9.22
  */
 
-public class CircleImageView_ extends android.support.v7.widget.AppCompatImageView {
+public class CircleImageView_ extends AppCompatImageView {
 
     //基本的三个构造函数
     public CircleImageView_(Context context) {

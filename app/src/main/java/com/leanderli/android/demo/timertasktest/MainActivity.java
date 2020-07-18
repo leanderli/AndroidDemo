@@ -1,9 +1,10 @@
 package com.leanderli.android.demo.timertasktest;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.leanderli.android.demo.R;
 

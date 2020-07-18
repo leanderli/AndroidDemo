@@ -5,7 +5,8 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
 
     <application
@@ -16,26 +17,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".usagestat.UsageStatTestActivity">
-        </activity>
+        <activity android:name=".recyclerview.OverSlideRecyclerViewActivity"></activity>
+        <activity android:name=".usagestat.UsageStatTestActivity"></activity>
         <activity android:name=".shatter.ShatterTestActivity" />
-        <activity android:name=".popup.PopupTestActivity"></activity>
+        <activity android:name=".popup.PopupTestActivity" />
         <activity android:name=".gridview.DragSortGridViewTestActivity" />
-        <activity android:name=".layout.FlowLayoutTestActivity"></activity>
+        <activity android:name=".layout.FlowLayoutTestActivity" />
         <activity android:name=".component.viewpager.RecyclerViewPagerTestActivity" />
-        <activity android:name=".launcher.Launcher" />
         <activity android:name=".layout.VerticalDrawerLayoutActivity" />
         <activity
             android:name=".bottomsheet.BottomSheetActivity"
-            android:theme="@style/LauncherThemeCompat" >
+            android:theme="@style/LauncherThemeCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity android:name=".timertasktest.MainActivity" />
 
         <service android:name=".timertasktest.AlarmService" />
@@ -45,7 +43,6 @@
         <activity android:name=".mvptest.test.TestActivity" />
         <activity android:name=".mvptest.recycleviewtest.ListTestActivity" />
         <activity android:name=".canvas.DrawTextActivity" />
-        <activity android:name=".launcher.LauncherAppTestActivity" />
         <activity android:name=".linearGradient.LinearGradientTestActivity" />
         <activity android:name=".blur.BlurTestActivity" />
         <activity android:name=".canvas.CircleImageViewTestActivity" />
@@ -53,9 +50,7 @@
         <activity android:name=".canvas.DrawableTextViewTestActivity" />
         <activity android:name=".component.drawerlayout.BottomDrawerLayoutTestActivity" />
         <activity android:name=".file.FileTestActivity" />
-        <activity android:name=".tablayout.TabLayoutActivity">
-
-        </activity>
+        <activity android:name=".tablayout.TabLayoutActivity"></activity>
     </application>
 
 </manifest>

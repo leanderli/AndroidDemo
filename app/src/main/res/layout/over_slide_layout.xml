@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.leanderli.android.demo.recyclerview.OverSlideLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/osl_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_over_slide_top_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#80DEEA"
+        android:maxHeight="100dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</com.leanderli.android.demo.recyclerview.OverSlideLayout>

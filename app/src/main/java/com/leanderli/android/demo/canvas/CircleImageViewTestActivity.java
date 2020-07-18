@@ -1,7 +1,8 @@
 package com.leanderli.android.demo.canvas;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.leanderli.android.demo.R;
 import com.leanderli.android.demo.customizeviews.RoundImageView;

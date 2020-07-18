@@ -1,9 +1,10 @@
 package com.leanderli.android.demo.blur;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.leanderli.android.demo.R;
 

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    tools:context=".layout.FlowLayoutTestActivity">
+    android:orientation="horizontal">
 
     <com.leanderli.android.demo.layout.FlowLayout
         android:layout_weight="1"

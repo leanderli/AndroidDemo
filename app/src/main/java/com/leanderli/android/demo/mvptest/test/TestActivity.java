@@ -1,9 +1,10 @@
 package com.leanderli.android.demo.mvptest.test;
 
-import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import com.leanderli.android.demo.R;
 import com.leanderli.android.demo.mvptest.base.BaseActivity;

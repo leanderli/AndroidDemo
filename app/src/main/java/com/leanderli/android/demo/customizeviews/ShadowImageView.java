@@ -10,14 +10,15 @@ import android.graphics.RectF;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.ColorInt;
-import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import androidx.annotation.ColorInt;
+import androidx.palette.graphics.Palette;
 
 import com.leanderli.android.demo.R;
 

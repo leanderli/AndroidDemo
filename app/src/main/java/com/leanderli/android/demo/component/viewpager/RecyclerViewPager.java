@@ -5,12 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.PointF;
 import android.os.Build;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.v4.text.TextUtilsCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSmoothScroller;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -18,6 +12,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
+
+import androidx.annotation.NonNull;
+import androidx.core.text.TextUtilsCompat;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.leanderli.android.demo.R;
 

@@ -1,13 +1,14 @@
 package com.leanderli.android.demo.bottomsheet;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.leanderli.android.demo.R;
 import com.leanderli.android.demo.util.SystemUiController;
 

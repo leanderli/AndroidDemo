@@ -7,7 +7,7 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shortcuts"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

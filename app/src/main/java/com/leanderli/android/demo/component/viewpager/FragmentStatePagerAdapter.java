@@ -7,21 +7,23 @@ import java.util.Set;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+
 import com.leanderli.android.demo.R;
 
 /**
- * Implementation of {@link android.support.v4.view.PagerAdapter} that
+ * Implementation of {@link PagerAdapter} that
  * uses a {@link Fragment} to manage each page. This class also handles
  * saving and restoring of fragment's state.
  * <p/>
@@ -30,7 +32,7 @@ import com.leanderli.android.demo.R;
  * the user, their entire fragment may be destroyed, only keeping the saved
  * state of that fragment.  This allows the pager to hold on to much less
  * memory associated with each visited page as compared to
- * {@link android.support.v4.app.FragmentPagerAdapter} at the cost of potentially more overhead when
+ * {@link FragmentPagerAdapter} at the cost of potentially more overhead when
  * switching between pages.
  * <p/>
  * <p>When using FragmentPagerAdapter the host ViewPager must have a
