@@ -17,8 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".recyclerview.OverSlideRecyclerViewActivity"></activity>
-        <activity android:name=".usagestat.UsageStatTestActivity"></activity>
+        <activity android:name=".popup.AttachShortcutsViewTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".recyclerview.OverSlideRecyclerViewActivity" />
+        <activity android:name=".usagestat.UsageStatTestActivity" />
         <activity android:name=".shatter.ShatterTestActivity" />
         <activity android:name=".popup.PopupTestActivity" />
         <activity android:name=".gridview.DragSortGridViewTestActivity" />
@@ -27,13 +34,7 @@
         <activity android:name=".drawerlayout.VerticalDrawerLayoutActivity" />
         <activity
             android:name=".bottomsheet.BottomSheetActivity"
-            android:theme="@style/LauncherThemeCompat">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/LauncherThemeCompat"></activity>
         <activity android:name=".timertask.MainActivity" />
 
         <service android:name=".timertask.AlarmService" />
@@ -50,7 +51,7 @@
         <activity android:name=".textview.DrawableTextViewTestActivity" />
         <activity android:name=".drawerlayout.BottomDrawerLayoutTestActivity" />
         <activity android:name=".file.FileTestActivity" />
-        <activity android:name=".tablayout.TabLayoutActivity"></activity>
+        <activity android:name=".tablayout.TabLayoutActivity" />
     </application>
 
 </manifest>
