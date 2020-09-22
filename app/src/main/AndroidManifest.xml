@@ -17,24 +17,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".popup.AttachShortcutsViewTestActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".flowlayout.FlowLayout2Activity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity android:name=".popup.AttachShortcutsViewTestActivity">
         </activity>
         <activity android:name=".recyclerview.OverSlideRecyclerViewActivity" />
         <activity android:name=".usagestat.UsageStatTestActivity" />
         <activity android:name=".shatter.ShatterTestActivity" />
         <activity android:name=".popup.PopupTestActivity" />
         <activity android:name=".gridview.DragSortGridViewTestActivity" />
-        <activity android:name=".flowlayout.FlowLayoutTestActivity" />
+        <activity android:name=".flowlayout.FlowLayoutTestActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".viewpager.RecyclerViewPagerTestActivity" />
         <activity android:name=".drawerlayout.VerticalDrawerLayoutActivity" />
         <activity
             android:name=".bottomsheet.BottomSheetActivity"
-            android:theme="@style/LauncherThemeCompat"></activity>
+            android:theme="@style/LauncherThemeCompat" />
         <activity android:name=".timertask.MainActivity" />
 
         <service android:name=".timertask.AlarmService" />

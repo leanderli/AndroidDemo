@@ -1,9 +1,14 @@
 package com.leanderli.android.demo.popup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -49,14 +54,16 @@ public class AttachShortcutsViewTestActivity extends AppCompatActivity {
 
     private void showAttachShortcutsPopupView(View view) {
         AttachShortcutsView shortcutsView = new AttachShortcutsView(this);
-        shortcutsView.setIcon(view);
-        shortcutsView.setBackgroundColor(Color.TRANSPARENT);
+        shortcutsView.setOverlayStatusbar(true);
+        shortcutsView.setOverlayNavigationBar(true);
+        shortcutsView.setShortcuts(view);
+        /*shortcutsView.setBackgroundColor(Color.TRANSPARENT);
         PopupBlurOption blurOption = new PopupBlurOption();
         blurOption.setBlurAsync(true);
         blurOption.setBlurRadius(15);
         blurOption.setBlurView(mContentView);
         shortcutsView.setBlurBackgroundEnable(true);
-        shortcutsView.setBlurOption(blurOption);
+        shortcutsView.setBlurOption(blurOption);*/
         shortcutsView.showPopupWindow();
     }
 
