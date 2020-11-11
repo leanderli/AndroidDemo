@@ -17,22 +17,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".flowlayout.FlowLayout2Activity">
 
-        </activity>
-        <activity android:name=".popup.AttachShortcutsViewTestActivity">
-        </activity>
-        <activity android:name=".recyclerview.OverSlideRecyclerViewActivity" />
-        <activity android:name=".usagestat.UsageStatTestActivity" />
-        <activity android:name=".shatter.ShatterTestActivity" />
-        <activity android:name=".popup.PopupTestActivity" />
-        <activity android:name=".gridview.DragSortGridViewTestActivity" />
-        <activity android:name=".flowlayout.FlowLayoutTestActivity" >
+        <activity android:name=".health.StepInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".usagestat.UsageStatsActivity"></activity>
+        <activity android:name=".flowlayout.FlowLayout2Activity">
+
+        </activity>
+        <activity android:name=".popup.AttachShortcutsViewTestActivity"></activity>
+        <activity android:name=".recyclerview.OverSlideRecyclerViewActivity" />
+        <activity android:name=".shatter.ShatterTestActivity" />
+        <activity android:name=".popup.PopupTestActivity" />
+        <activity android:name=".gridview.DragSortGridViewTestActivity" />
+        <activity android:name=".flowlayout.FlowLayoutTestActivity">
+
         </activity>
         <activity android:name=".viewpager.RecyclerViewPagerTestActivity" />
         <activity android:name=".drawerlayout.VerticalDrawerLayoutActivity" />

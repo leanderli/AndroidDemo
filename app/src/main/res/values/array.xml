@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="UsageStatsSpinnerEntries">
+        <item>Sorting by usage time</item>
+        <item>Sorting by last time used</item>
+        <item>Sorting by application name</item>
+    </string-array>
+    
+</resources>
