@@ -20,16 +20,17 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".architecture.mvvm.ui.home.LoginTestHomeActivity"
-            android:label="@string/home"></activity>
-        <activity
-            android:name=".architecture.mvvm.ui.login.LoginTestLoginActivity"
-            android:label="@string/login">
+            android:name=".architecture.mvvm.ui.home.MvvmHomeActivity"
+            android:label="@string/home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".architecture.mvvm.ui.login.MvvmLoginActivity"
+            android:label="@string/login">
         </activity>
         <activity android:name=".health.StepInfoActivity"></activity>
         <activity android:name=".usagestat.UsageStatsActivity" />

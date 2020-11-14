@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".architecture.mvvm.ui.login.LoginTestLoginActivity">
+    tools:context=".architecture.mvvm.ui.login.MvvmLoginActivity">
 
     <EditText
         android:id="@+id/username"

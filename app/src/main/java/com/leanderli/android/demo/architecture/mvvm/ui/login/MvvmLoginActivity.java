@@ -22,16 +22,16 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.leanderli.android.demo.R;
-import com.leanderli.android.demo.architecture.mvvm.ui.home.LoginTestHomeActivity;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.MvvmHomeActivity;
 
-public class LoginTestLoginActivity extends AppCompatActivity {
+public class MvvmLoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rx_java_test_login);
+        setContentView(R.layout.activity_mvvm_login);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory()).get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.username);
@@ -111,7 +111,7 @@ public class LoginTestLoginActivity extends AppCompatActivity {
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
 
-        startActivity(new Intent(this, LoginTestHomeActivity.class));
+        startActivity(new Intent(this, MvvmHomeActivity.class));
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
