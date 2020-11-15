@@ -13,4 +13,6 @@
     <color name="transparent">@android:color/transparent</color>
 
     <color name="colorGreyBackground">#EDEDED</color>
+    <color name="colorTransparentBackground">#80FFFFFF</color>
+
 </resources>

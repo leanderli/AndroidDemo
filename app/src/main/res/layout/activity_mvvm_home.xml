@@ -5,13 +5,16 @@
     android:id="@+id/srl_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorGreyBackground"
+    android:background="@color/colorTransparentBackground"
     tools:context=".architecture.mvvm.ui.home.MvvmHomeActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingTop="56dp"
+        android:paddingBottom="56dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,68 +26,37 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                android:padding="16dp">
 
                 <TextView
+                    android:id="@+id/tv_hitokoto_content"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="@string/hitokoto_title"
-                    android:textSize="14sp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:autoSizeMaxTextSize="24sp"
+                    android:autoSizeMinTextSize="10sp"
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="心之所向，素履以往"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <!--                <ImageView
-                                    android:id="@+id/iv_refresh"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_centerVertical="true"
-                                    android:background="?attr/selectableItemBackground"
-                                    android:padding="5dp"
-                                    android:src="@drawable/ic_refresh_128" />-->
+                <TextView
+                    android:id="@+id/tv_hitokoto_source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_hitokoto_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:text="七堇年《尘曲》"
+                    android:textStyle="italic" />
 
             </RelativeLayout>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="18dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:id="@+id/tv_hitokoto_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:text="心之所向，素履以往"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/tv_hitokoto_source"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_hitokoto_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="5dp"
-                        android:text="—— 七堇年《尘曲》"
-                        android:textColor="@android:color/black"
-                        android:textStyle="italic" />
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- hotspot -->
+            <!-- hotspotItem -->
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -103,23 +75,26 @@
 
             </RelativeLayout>
 
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="18dp"
                 app:cardPreventCornerOverlap="true"
+                app:cardCornerRadius="@dimen/view_radius"
                 app:cardUseCompatPadding="true">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
                     <com.leanderli.android.demo.architecture.mvvm.view.NestedExpandableListView
                         android:id="@+id/elv_hotspot"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:dividerHeight="0.1dp" />
 
-                </RelativeLayout>
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -145,58 +120,127 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="18dp"
                 app:cardPreventCornerOverlap="true"
+                app:cardCornerRadius="@dimen/view_radius"
                 app:cardUseCompatPadding="true">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
+                    android:orientation="vertical"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="16dp"
+                    android:paddingRight="24dp"
+                    android:paddingBottom="16dp">
 
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-                </RelativeLayout>
+                        <LinearLayout
+                            android:id="@+id/ll_location_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-            </androidx.cardview.widget.CardView>
+                            <TextView
+                                android:id="@+id/tv_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/placeholder"
+                                android:textColor="@android:color/black"
+                                android:textSize="16sp" />
 
-            <!-- Weekly weather -->
+                            <ImageView
+                                android:id="@+id/iv_location_icon"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginStart="4dp"
+                                android:src="@drawable/icons8_near_me_96" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+                        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="@string/weekly_weather_title"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tv_temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ll_location_info"
+                            android:text="@string/placeholder"
+                            android:textColor="@android:color/black"
+                            android:textSize="48sp" />
 
-            </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/ll_weather_detail_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="18dp"
-                app:cardPreventCornerOverlap="true"
-                app:cardUseCompatPadding="true">
+                            <ImageView
+                                android:id="@+id/iv_weather_icon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentEnd="true" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp">
+                            <TextView
+                                android:id="@+id/tv_weather_description"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/iv_weather_icon"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/placeholder"
+                                android:textColor="@android:color/black" />
 
+                            <TextView
+                                android:id="@+id/tv_temperature_range"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_weather_description"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/placeholder"
+                                android:textColor="@android:color/black" />
 
-                </RelativeLayout>
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#CCC" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_3daily_broadcast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#CCC" />
+
+                    <TextView
+                        android:id="@+id/tv_more_weather_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="8dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:text="@string/more_weather_info"
+                        android:textColor="#039BE5"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <!-- UsageStats report -->
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -217,17 +261,16 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="18dp"
                 app:cardPreventCornerOverlap="true"
+                app:cardCornerRadius="@dimen/view_radius"
                 app:cardUseCompatPadding="true">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
+                    android:orientation="vertical">
 
-
-                </RelativeLayout>
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 

@@ -8,14 +8,16 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.AppCompatTextView;
-
+import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.CollectionUtils;
+import com.blankj.utilcode.util.IntentUtils;
 import com.blankj.utilcode.util.MapUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.leanderli.android.demo.R;
-import com.leanderli.android.demo.architecture.mvvm.data.model.Hotspot;
+import com.leanderli.android.demo.architecture.mvvm.data.model.HotspotItem;
+import com.leanderli.android.demo.architecture.mvvm.data.model.HotspotType;
+import com.leanderli.android.demo.common.Utilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,35 +27,43 @@ public class HotspotAdapter extends BaseExpandableListAdapter {
     private final Context mContext;
     private final LayoutInflater layoutInflater;
 
-    private ArrayList<String> mHotspotGroups;
-    private HashMap<String, ArrayList<Hotspot>> mHotspotGroupItems;
+    private ArrayList<HotspotType> mHotspotTypes;
+    private HashMap<Integer, ArrayList<HotspotItem>> mHotspotItems;
 
-    public HotspotAdapter(Context context, ArrayList<String> hotspotGroups, HashMap<String, ArrayList<Hotspot>> hotspotGroupItems) {
+    public HotspotAdapter(Context context, ArrayList<HotspotType> hotspotTypes, HashMap<Integer, ArrayList<HotspotItem>> hotspotItems) {
         this.mContext = context;
         this.layoutInflater = LayoutInflater.from(context);
 
-        this.mHotspotGroups = hotspotGroups;
-        this.mHotspotGroupItems = hotspotGroupItems;
+        this.mHotspotTypes = hotspotTypes;
+        this.mHotspotItems = hotspotItems;
     }
 
     @Override
     public int getGroupCount() {
-        return CollectionUtils.isEmpty(mHotspotGroups) ? 0 : mHotspotGroups.size();
+        return CollectionUtils.isEmpty(mHotspotTypes) ? 0 : mHotspotTypes.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return MapUtils.isEmpty(mHotspotGroupItems) ? 0 : mHotspotGroupItems.get(mHotspotGroups.get(groupPosition)).size();
+        if (MapUtils.isEmpty(mHotspotItems)) {
+            return 0;
+        } else {
+            if (CollectionUtils.isEmpty(mHotspotItems.get(mHotspotTypes.get(groupPosition).getType()))) {
+                return 0;
+            } else {
+                return mHotspotItems.get(mHotspotTypes.get(groupPosition).getType()).size();
+            }
+        }
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mHotspotGroups.get(groupPosition);
+        return mHotspotTypes.get(groupPosition);
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return mHotspotGroupItems.get(mHotspotGroups.get(groupPosition)).get(childPosition);
+        return mHotspotItems.get(mHotspotTypes.get(groupPosition).getType()).get(childPosition);
     }
 
     @Override
@@ -76,24 +86,37 @@ public class HotspotAdapter extends BaseExpandableListAdapter {
         if (null == convertView) {
             convertView = layoutInflater.inflate(R.layout.mvvm_home_hotspot_group_item, parent, false);
         }
-        String groupName = mHotspotGroups.get(groupPosition);
-        TextView groupNameTextView = convertView.findViewById(R.id.tv_title);
-        groupNameTextView.setText(groupName);
+        TextView typeNameTextView = convertView.findViewById(R.id.tv_title);
+        typeNameTextView.setText(mHotspotTypes.get(groupPosition).getName());
+
+        ImageView typeIconImageView = convertView.findViewById(R.id.iv_icon);
+        typeIconImageView.setImageDrawable(mHotspotTypes.get(groupPosition).getIcon());
 
         return convertView;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        Hotspot hotspot = mHotspotGroupItems.get(mHotspotGroups.get(groupPosition)).get(childPosition);
+        HotspotType hotspotType = mHotspotTypes.get(groupPosition);
+        HotspotItem hotspotItem = mHotspotItems.get(hotspotType.getType()).get(childPosition);
         if (null == convertView) {
             convertView = layoutInflater.inflate(R.layout.mvvm_home_hotspot_item_item, parent, false);
         }
         TextView hotspotNameTextView = convertView.findViewById(R.id.tv_title);
-        hotspotNameTextView.setText(hotspot.getName());
+        hotspotNameTextView.setText(hotspotItem.getName());
+
+        ImageView hotspotShareImageView = convertView.findViewById(R.id.iv_share_icon);
+        hotspotShareImageView.setOnClickListener((v) -> {
+            String shareText = hotspotItem.getName() + "\n" + hotspotItem.getUrl();
+            ActivityUtils.startActivity(IntentUtils.getShareTextIntent(shareText, true));
+        });
 
         convertView.setOnClickListener((v) -> {
-            ToastUtils.showShort(hotspot.getName());
+            ToastUtils.showShort(hotspotItem.getName());
+            if (!StringUtils.isEmpty(hotspotItem.getUrl())) {
+                // open url in browser
+                Utilities.openLinkByBrowser(mContext, hotspotItem.getUrl());
+            }
         });
 
         return convertView;
