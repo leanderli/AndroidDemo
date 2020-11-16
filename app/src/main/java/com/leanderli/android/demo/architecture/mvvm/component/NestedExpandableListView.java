@@ -1,4 +1,4 @@
-package com.leanderli.android.demo.architecture.mvvm.view;
+package com.leanderli.android.demo.architecture.mvvm.component;
 
 import android.content.Context;
 import android.util.AttributeSet;

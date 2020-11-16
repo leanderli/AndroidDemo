@@ -1,4 +1,4 @@
-package com.leanderli.android.demo.architecture.mvvm.ui.home;
+package com.leanderli.android.demo.architecture.mvvm.ui.home.weather;
 
 import android.content.Context;
 import android.graphics.Bitmap;

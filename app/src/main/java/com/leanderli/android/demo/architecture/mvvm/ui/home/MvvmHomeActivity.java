@@ -12,12 +12,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.CollectionUtils;
+import com.blankj.utilcode.util.ConvertUtils;
 import com.blankj.utilcode.util.TimeUtils;
 import com.leanderli.android.demo.R;
 import com.leanderli.android.demo.architecture.mvvm.data.model.HotspotItem;
 import com.leanderli.android.demo.architecture.mvvm.data.model.HotspotType;
 import com.leanderli.android.demo.architecture.mvvm.data.model.Weather;
-import com.leanderli.android.demo.architecture.mvvm.view.NestedExpandableListView;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.hotspot.HotspotAdapter;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.weather.DailyWeatherAdapter;
+import com.leanderli.android.demo.architecture.mvvm.component.NestedExpandableListView;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.weather.dynamic.BaseWeatherType;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.weather.dynamic.DefaultType;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.weather.dynamic.DynamicWeatherView;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.weather.dynamic.ShortWeatherInfo;
+import com.leanderli.android.demo.architecture.mvvm.ui.home.weather.dynamic.WeatherTypeUtil;
 import com.leanderli.android.demo.common.Utilities;
 
 import java.util.ArrayList;
@@ -27,12 +35,15 @@ import java.util.HashMap;
 public class MvvmHomeActivity extends AppCompatActivity {
 
     private SwipeRefreshLayout mainSwipeRefreshLayout;
+
     private TextView hitokotoContentTextView, hitikotoSourceTextView;
     private NestedExpandableListView hotspotExListView;
+
     private TextView locationTextView, weatherDescTextView, temperatureRangeTextView,
             temperatureTextView, moreWeatherInfoTextView;
     private ImageView locationImageView, weatherIconImageView;
     private RecyclerView threeDayWeatherRv;
+    private DynamicWeatherView dynamicWeatherView;
 
     private HotspotAdapter hotspotAdapter;
     private DailyWeatherAdapter dailyWeatherAdapter;
@@ -41,6 +52,7 @@ public class MvvmHomeActivity extends AppCompatActivity {
 
     private final ArrayList<HotspotType> hotspotTypes = new ArrayList<>();
     private final HashMap<Integer, ArrayList<HotspotItem>> hotspotItems = new HashMap<>();
+    private BaseWeatherType baseWeatherType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +67,24 @@ public class MvvmHomeActivity extends AppCompatActivity {
         setView();
         bindData();
         updateView();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        dynamicWeatherView.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        dynamicWeatherView.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        dynamicWeatherView.onDestroy();
+        super.onDestroy();
     }
 
     private void initData() {
@@ -81,6 +111,7 @@ public class MvvmHomeActivity extends AppCompatActivity {
         weatherIconImageView = findViewById(R.id.iv_weather_icon);
         threeDayWeatherRv = findViewById(R.id.rv_3daily_broadcast);
         moreWeatherInfoTextView = findViewById(R.id.tv_more_weather_info);
+        dynamicWeatherView = findViewById(R.id.dynamic_weather_view);
     }
 
     private void setView() {
@@ -106,6 +137,9 @@ public class MvvmHomeActivity extends AppCompatActivity {
         moreWeatherInfoTextView.setOnClickListener((v) -> {
             Utilities.openLinkByBrowser(this, getString(R.string.more_weather_info_link));
         });
+
+        dynamicWeatherView.setSurfaceViewCorner(getResources().getDimensionPixelSize(R.dimen.view_radius));
+        dynamicWeatherView.setType(new DefaultType(this));
     }
 
     private void setHotspotView() {
@@ -152,25 +186,42 @@ public class MvvmHomeActivity extends AppCompatActivity {
 
     private void updateCurrentWeatherUi() {
         homeViewModel.getCurrentWeather(101020100).observe(this, weather -> {
+            if (null == weather) {
+                return;
+            }
             locationTextView.setText("上海市");
             weatherDescTextView.setText(weather.getDescription());
             temperatureTextView.setText(weather.getTemperature() + getString(R.string.celsius_symbol));
             weatherIconImageView.setImageBitmap(Utilities.getBitmapFromAsset(this, "weather_icons/" + weather.getIconCode() + ".png"));
-        });
-        homeViewModel.getThreeDayWeather(101020100).observe(this, weathers -> {
-            if (!CollectionUtils.isEmpty(weathers)) {
-                for (Weather weather : weathers) {
-                    Date date = weather.getDate();
-                    if (TimeUtils.isToday(date)) {
-                        String todayTempRange = getString(R.string.temperature_max) + weather.getTemperatureMax() + getString(R.string.celsius_symbol)
-                                + " "
-                                + getString(R.string.temperature_min) + weather.getTemperatureMin() + getString(R.string.celsius_symbol);
-                        temperatureRangeTextView.setText(todayTempRange);
-                        break;
-                    }
-                }
-                dailyWeatherAdapter.setWeathers(weathers);
+            String todayTempRange = getString(R.string.temperature_max) + weather.getTemperatureMax() + getString(R.string.celsius_symbol)
+                    + " "
+                    + getString(R.string.temperature_min) + weather.getTemperatureMin() + getString(R.string.celsius_symbol);
+            temperatureRangeTextView.setText(todayTempRange);
+            if (weather.isCompleteLoad()) {
+                updateDynamicWeatherView(weather);
             }
         });
+        homeViewModel.getThreeDayWeather(101020100).observe(this, weathers -> {
+            if (CollectionUtils.isEmpty(weathers)) {
+                return;
+            }
+            dailyWeatherAdapter.setWeathers(weathers);
+        });
     }
+
+    private void updateDynamicWeatherView(Weather weather) {
+        ShortWeatherInfo info = new ShortWeatherInfo();
+        info.setCode(String.valueOf(weather.getIconCode()));
+        info.setWindSpeed(String.valueOf(weather.getWindSpeed()));
+        info.setSunrise(weather.getSunrise());
+        info.setSunset(weather.getSunset());
+        info.setMoonrise(weather.getMoonrise());
+        info.setMoonset(weather.getMoonset());
+        if (baseWeatherType == null || System.currentTimeMillis() - baseWeatherType.getLastUpdatedTime() > 30 * 60 * 1000) {
+            baseWeatherType = WeatherTypeUtil.getType(this, info);
+            baseWeatherType.setLastUpdatedTime(System.currentTimeMillis());
+        }
+        dynamicWeatherView.setType(baseWeatherType);
+    }
+
 }

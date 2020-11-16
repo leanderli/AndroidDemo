@@ -1,4 +1,4 @@
-package com.leanderli.android.demo.architecture.mvvm.ui.home;
+package com.leanderli.android.demo.architecture.mvvm.ui.home.hotspot;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -84,7 +84,7 @@ public class HotspotAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         if (null == convertView) {
-            convertView = layoutInflater.inflate(R.layout.mvvm_home_hotspot_group_item, parent, false);
+            convertView = layoutInflater.inflate(R.layout.mvvm_home_hotspot_type_item, parent, false);
         }
         TextView typeNameTextView = convertView.findViewById(R.id.tv_title);
         typeNameTextView.setText(mHotspotTypes.get(groupPosition).getName());

@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.blankj.utilcode.util.CollectionUtils;
+import com.blankj.utilcode.util.TimeUtils;
 import com.leanderli.android.demo.architecture.mvvm.data.DataSourceCallback;
 import com.leanderli.android.demo.architecture.mvvm.data.HomeRepository;
 import com.leanderli.android.demo.architecture.mvvm.data.Result;
@@ -13,6 +15,7 @@ import com.leanderli.android.demo.architecture.mvvm.data.model.HotspotType;
 import com.leanderli.android.demo.architecture.mvvm.data.model.Weather;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HomeViewModel extends ViewModel {
 
@@ -86,7 +89,20 @@ public class HomeViewModel extends ViewModel {
         repository.getWeather(Weather.TYPE_CURRENT, cityCode, new DataSourceCallback() {
             @Override
             public void onSuccess(Result<Result.Success> successResult) {
-                currentWeatherLiveData.postValue((Weather) ((Result.Success) successResult).getData());
+                Weather current = (Weather) ((Result.Success) successResult).getData();
+                if (null == currentWeatherLiveData.getValue()) {
+                    current.setCompleteLoad(false);
+                } else {
+                    Weather partDataOfWeather = currentWeatherLiveData.getValue();
+                    current.setTemperatureMax(partDataOfWeather.getTemperatureMax());
+                    current.setTemperatureMin(partDataOfWeather.getTemperatureMin());
+                    current.setSunrise(partDataOfWeather.getSunrise());
+                    current.setSunset(partDataOfWeather.getSunset());
+                    current.setMoonrise(partDataOfWeather.getMoonrise());
+                    current.setMoonset(partDataOfWeather.getMoonset());
+                    current.setCompleteLoad(true);
+                }
+                currentWeatherLiveData.postValue(current);
             }
 
             @Override
@@ -101,7 +117,9 @@ public class HomeViewModel extends ViewModel {
         repository.getWeather(Weather.TYPE_3DAY, cityCode, new DataSourceCallback() {
             @Override
             public void onSuccess(Result<Result.Success> successResult) {
-                threeDayWeathers.postValue((ArrayList<Weather>) ((Result.Success) successResult).getData());
+                ArrayList<Weather> weathers = (ArrayList<Weather>) ((Result.Success) successResult).getData();
+                updateCurrentWeather(weathers);
+                threeDayWeathers.postValue(weathers);
             }
 
             @Override
@@ -110,6 +128,35 @@ public class HomeViewModel extends ViewModel {
             }
         });
         return threeDayWeathers;
+    }
+
+    private void updateCurrentWeather(ArrayList<Weather> weathers) {
+        Weather currentWeather = null;
+        boolean isNewData = false;
+        if (null == currentWeatherLiveData.getValue()) {
+            currentWeather = new Weather();
+            isNewData = true;
+        } else {
+            currentWeather = currentWeatherLiveData.getValue();
+        }
+        if (!CollectionUtils.isEmpty(weathers)) {
+            for (Weather weather : weathers) {
+                Date date = weather.getDate();
+                if (TimeUtils.isToday(date)) {
+                    currentWeather.setTemperatureMax(weather.getTemperatureMax());
+                    currentWeather.setTemperatureMin(weather.getTemperatureMin());
+                    currentWeather.setSunrise(weather.getSunrise());
+                    currentWeather.setSunset(weather.getSunset());
+                    currentWeather.setMoonrise(weather.getMoonrise());
+                    currentWeather.setMoonset(weather.getMoonset());
+                    if (!isNewData) {
+                        currentWeather.setCompleteLoad(true);
+                    }
+                    break;
+                }
+            }
+        }
+        currentWeatherLiveData.postValue(currentWeather);
     }
 
 

@@ -27,8 +27,17 @@ public class Weather {
     private String sunrise;
     @SerializedName(value = "sunset")
     private String sunset;
+    @SerializedName(value = "moonrise")
+    private String moonrise;
+    @SerializedName(value = "moonset")
+    private String moonset;
+    @SerializedName(value = "windSpeed")
+    private int windSpeed;
+
     private Date updateTime;
     private int cityCode;
+
+    private boolean completeLoad = false;
 
     public int getTemperature() {
         return temperature;
@@ -126,19 +135,35 @@ public class Weather {
         this.sunset = sunset;
     }
 
-    @Override
-    public String toString() {
-        return "Weather{" +
-                "temperature=" + temperature +
-                ", temperatureMin=" + temperatureMin +
-                ", temperatureMax=" + temperatureMax +
-                ", iconCode=" + iconCode +
-                ", iconDayCode=" + iconDayCode +
-                ", iconNightCode=" + iconNightCode +
-                ", description='" + description + '\'' +
-                ", date=" + date +
-                ", updateTime=" + updateTime +
-                ", cityCode=" + cityCode +
-                '}';
+    public String getMoonrise() {
+        return moonrise;
+    }
+
+    public void setMoonrise(String moonrise) {
+        this.moonrise = moonrise;
+    }
+
+    public String getMoonset() {
+        return moonset;
+    }
+
+    public void setMoonset(String moonset) {
+        this.moonset = moonset;
+    }
+
+    public int getWindSpeed() {
+        return windSpeed;
+    }
+
+    public void setWindSpeed(int windSpeed) {
+        this.windSpeed = windSpeed;
+    }
+
+    public boolean isCompleteLoad() {
+        return completeLoad;
+    }
+
+    public void setCompleteLoad(boolean completeLoad) {
+        this.completeLoad = completeLoad;
     }
 }
