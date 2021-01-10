@@ -20,10 +20,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".architecture.mvvm.ui.home.MvvmHomeActivity"
-            android:label="@string/home"
-            android:theme="@style/LauncherThemeCompat">
+        <activity android:name=".ScreenStateChangeListenerTestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,10 +28,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".architecture.mvvm.ui.login.MvvmLoginActivity"
-            android:label="@string/login">
+            android:name=".architecture.mvvm.ui.home.MvvmHomeActivity"
+            android:label="@string/home"
+            android:theme="@style/LauncherThemeCompat">
         </activity>
-        <activity android:name=".health.StepInfoActivity"></activity>
+        <activity
+            android:name=".architecture.mvvm.ui.login.MvvmLoginActivity"
+            android:label="@string/login"></activity>
+        <activity android:name=".health.StepInfoActivity" />
         <activity android:name=".usagestat.UsageStatsActivity" />
         <activity android:name=".flowlayout.FlowLayout2Activity" />
         <activity android:name=".popup.AttachShortcutsViewTestActivity" />
